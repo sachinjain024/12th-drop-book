@@ -22,7 +22,7 @@ It is a static, self-contained page — no build step and no server. The only th
 
 ## Language toggle
 
-The header has a **हिंदी / EN** switch. The page loads in **Hindi by default**; readers can switch to English. Only the *content* changes language — the navigation labels and calls-to-action (**About the Book, Reviews, Contact, Read on Kindle, Read what it's about**) stay in English in both modes, by design. The choice is remembered on the reader's device, and the page still shows Hindi correctly even if JavaScript is off.
+The header has a **हिंदी / EN** switch. The page loads in **Hindi by default**; readers can switch to English. Only the *content* changes language — the navigation labels and calls-to-action (**About, Reviews, Contact, Read on Kindle, Read what it's about, Write a Review**) stay in English in both modes, by design. The choice is remembered on the reader's device, and the page still shows Hindi correctly even if JavaScript is off.
 
 ## The flip-book reader (hero)
 

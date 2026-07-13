@@ -29,7 +29,7 @@ The hero centerpiece is an interactive page-flip book built on **StPageFlip** (`
 The page is Hindi-by-default with a **हिंदी / EN** switch in the nav. Rules:
 
 - `<body data-lang="hi">` sets the default; CSS `[data-lang="hi"] .en-only{display:none}` and `[data-lang="en"] .hi-only{display:none}` do the showing/hiding. A tiny inline script flips `data-lang`, updates `<html lang>`, toggles the buttons' `aria-pressed`, and remembers the choice in `localStorage` (`td_lang`).
-- **Content is tagged, labels are not.** Any translatable content exists as a paired `.hi-only` + `.en-only` element. Navigation links and CTAs (About the Book, Reviews, Contact, Read on Kindle, Read what it's about, Available Now) are deliberately left **untagged so they stay English in both modes** — do not wrap them in `.hi-only/.en-only`.
+- **Content is tagged, labels are not.** Any translatable content exists as a paired `.hi-only` + `.en-only` element. Navigation links and CTAs (About, Reviews, Contact, Read on Kindle, Read what it's about, Available Now, Write a Review) are deliberately left **untagged so they stay English in both modes** — do not wrap them in `.hi-only/.en-only`.
 - **Always add content in pairs.** If you add a translatable line, add both a `.hi-only` and an `.en-only` version. Use the `.hindi` class (Tiro Devanagari font) on the Hindi one. The counts of `hi-only` and `en-only` should stay equal.
 - Keep `data-lang="hi"` on `<body>` so the page reads correctly with JavaScript disabled.
 
