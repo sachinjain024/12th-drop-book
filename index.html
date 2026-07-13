@@ -163,6 +163,12 @@
   }
   .book-closed:hover .closed-cover{transform:translateY(-4px) rotate(-.4deg);box-shadow:0 30px 60px -22px rgba(58,36,23,.66), inset 7px 0 14px -8px rgba(0,0,0,.4)}
   .open-book-btn{cursor:pointer}
+  .write-review-link{
+    font-family:'Mukta',sans-serif;font-size:.95rem;color:var(--ink-soft);
+    text-decoration:none;border-bottom:1px dashed var(--gold);padding-bottom:2px;
+    transition:color .2s;
+  }
+  .write-review-link:hover{color:var(--terracotta)}
   .book-hint{font-size:.85rem;color:var(--ink-soft);max-width:340px;line-height:1.5}
   .book-hint.hindi,.book-hint .hindi{font-family:'Tiro Devanagari Hindi',serif}
 
@@ -300,6 +306,7 @@
     text-align:center;color:var(--ink-soft);min-height:220px;
   }
   .review.placeholder .p-ico{font-size:1.8rem;opacity:.5;margin-bottom:.6rem}
+  .reviews-cta{text-align:center;margin-top:2.6rem}
 
   /* ============================= BUY ============================= */
   .buy{background:linear-gradient(180deg,var(--ink) 0%,#2c1a10 100%);color:var(--paper);text-align:center}
@@ -379,6 +386,8 @@
       <div class="book-closed" id="bookClosed">
         <img class="closed-cover" src="assets/cover.png" alt="12th Drop book cover" />
         <button class="btn open-book-btn" id="openBookBtn" type="button">Open Book ▸</button>
+        <!-- CTA → stays English in both languages -->
+        <a class="write-review-link" href="https://www.amazon.in/review/create-review/?asin=B0H7CKSGB2" target="_blank" rel="noopener">✎ Write a Review</a>
       </div>
 
       <!-- Reader (revealed after opening) -->
@@ -515,6 +524,11 @@
         </div>
       </article>
 
+    </div>
+
+    <!-- Primary CTA → stays English in both languages -->
+    <div class="reviews-cta">
+      <a class="btn" href="https://www.amazon.in/review/create-review/?asin=B0H7CKSGB2" target="_blank" rel="noopener">✎ Write a Review</a>
     </div>
   </div>
 </section>
