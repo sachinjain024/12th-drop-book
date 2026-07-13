@@ -1,71 +1,74 @@
-# 12th Drop — Website
+<div align="center">
 
-A single-page website for the book **12th Drop · बारहवीं ड्रॉप — _A Story of Every Common Man_** by Sunil Kumar Jain.
+<img src="assets/cover.png" alt="12th Drop — book cover" width="300"/>
 
-It is a static, self-contained page — no build step and no server. The only third-party code is a small page-flip library bundled locally in `assets/vendor/` (no CDN needed). Just open the file.
+<h1>12<sup>th</sup> Drop · बारहवीं ड्रॉप</h1>
+<h3>एक आम आदमी की कहानी · A Story of Every Common Man</h3>
 
-## Files
+<p>by <b>Sunil Kumar Jain</b> &nbsp;·&nbsp; told by <b>Sachin &amp; Rahul Jain</b></p>
 
-| Path                        | What it is                                                                 |
-| --------------------------- | -------------------------------------------------------------------------- |
-| `index.html`                | The entire website (HTML + CSS + JS in one file).                          |
-| `assets/cover.png`          | The book cover — shown as the closed book in the hero and the flip cover.  |
-| `assets/cover.jpg`          | Cover used for the social-share (Open Graph) preview.                      |
-| `assets/pages/page-###.jpg` | The 141 book pages, pre-rendered from the PDF for the flip-book reader.     |
-| `assets/vendor/page-flip.browser.js` | The StPageFlip library (bundled locally, v2.0.7).                 |
-| `assets/book- v1-greyscale.pdf` | Source PDF the page images were rendered from.                         |
+<p>
+  <a href="https://12thdrop.in"><img src="https://img.shields.io/badge/🌐_Visit_Website-12thdrop.in-9c471a?style=for-the-badge" alt="Visit Website"></a>
+  &nbsp;
+  <a href="https://www.amazon.in/dp/B0H7CKSGB2"><img src="https://img.shields.io/badge/📖_Read_on_Kindle-Amazon.in-d98f4f?style=for-the-badge" alt="Read on Kindle"></a>
+</p>
 
-## How to view / publish
+</div>
 
-- **View locally:** double-click `index.html` (or open it in any browser).
-- **Publish free:** drag the whole `website/` folder into [Netlify Drop](https://app.netlify.com/drop), or push it to a GitHub repo and enable **GitHub Pages**. Either gives you a live URL in minutes.
+---
 
-## Language toggle
+## यह किसी हीरो की कहानी नहीं है · Not a hero's story
 
-The header has a **हिंदी / EN** switch. The page loads in **Hindi by default**; readers can switch to English. Only the *content* changes language — the navigation labels and calls-to-action (**About the Book, Reviews, Contact, Read on Kindle, Read what it's about**) stay in English in both modes, by design. The choice is remembered on the reader's device, and the page still shows Hindi correctly even if JavaScript is off.
+> यह किसी हीरो की कहानी नहीं है।
+> यह उस आम आदमी की कहानी है, जो हर घर में कहीं न कहीं रहता है।
 
-## The flip-book reader (hero)
+Sunil Kumar Jain was a boy from an ordinary Indian family: poverty, an unfinished education, the taunts of society, and the weight of a household — he carried it all, and never gave up.
 
-The hero is an interactive **flip-book**. It starts as a closed book (the cover) with an **Open Book** button. On open it turns the pages with a realistic flip animation; readers move with the on-screen **‹ ›** arrows or the keyboard arrow keys. It works on desktop, tablet, and mobile (mobile shows one page at a time in portrait).
+*12th Drop* is woven from real conversations between a father and his son. There is nothing manufactured in it, and it preaches no sermon — just life, as it truly is. From ₹60 schooling and two years lost after Class 12, through twenty-three failed job interviews, to becoming a teacher on the twenty-fourth.
 
-**Reading progress is saved** to the browser's `localStorage` (key `td_page`). When a reader returns, opening the book jumps straight back to the page they left off on. **Close** collapses back to the cover; **Restart** goes to page 1.
+Every incident in the book is true, lifted straight from life (only a few names are changed). It began as a small gift from the children to their father on his retirement — and became the story of millions of ordinary people.
 
-The pages come from `assets/pages/` — 141 JPEGs pre-rendered from `assets/book- v1-greyscale.pdf`, then tinted from white to the site's cream paper tone (`#f0e0c6`) so they blend with the background. To regenerate them after updating the PDF:
+<div align="center">
 
+| ₹60 | 2 | 23 | 36 |
+|:---:|:---:|:---:|:---:|
+| total schooling<br>Classes 1–8 | years lost<br>after Class 12 | interviews<br>then the 24th | chapters<br>6 phases |
+
+</div>
+
+## The Journey · छह भाग में एक सफ़र
+
+The story runs from the 1970s to the early 1990s — from a one-room childhood in Kailash Nagar to a teacher's chair, one phase at a time.
+
+```mermaid
+timeline
+    title बारहवीं ड्रॉप — one life, six phases (1970s → 1990s)
+    section बचपन · Childhood
+        भाग 1 · कैलाश नगर : Childhood days in the city : Schooling that cost ₹60 in all : Envelopes glued at home to make ends meet
+        भाग 2 · गाँव : The family moves to the village : Village maths, potatoes and snakes : A rain of tears
+    section संघर्ष · The Struggle
+        भाग 3 · ड्रॉप के साल : Back to the city : Class 12 — dropped, twice : The two years that named this book
+        भाग 4 · कॉलेज : Second-year fees nowhere in sight : The Meerut riots : Fighting to simply stay enrolled
+    section नई ज़मीन · New Ground
+        भाग 5 · शादी और बी.एड. : A match is fixed, a ring exchanged : Marriage and a B.Ed. side by side
+        भाग 6 · नौकरी का संघर्ष : Borrowed shoes, 23 rejections : The 24th interview — मास्टर जी : Epilogue — retirement, story retold
 ```
-# 1) render pages
-pdftoppm -jpeg -jpegopt quality=78 -scale-to-x 720 -scale-to-y -1 "assets/book- v1-greyscale.pdf" assets/pages/page
 
-# 2) tint white -> cream (multiply blend, keeps text & photos)
-python3 - <<'PY'
-import numpy as np, glob
-from PIL import Image
-paper=(0xf0,0xe0,0xc6)
-for f in sorted(glob.glob('assets/pages/page-*.jpg')):
-    g=np.asarray(Image.open(f).convert('L')).astype(np.uint16)
-    out=np.empty(g.shape+(3,),np.uint8)
-    for i,ch in enumerate(paper): out[...,i]=(g*ch//255).astype(np.uint8)
-    Image.fromarray(out,'RGB').save(f,quality=84,optimize=True)
-PY
-```
+| # | भाग | Phase | Chapters | What happens |
+|:-:|-----|-------|:--------:|--------------|
+| 1 | कैलाश नगर — बचपन के दिन | Childhood in Kailash Nagar | 1–6 | A city childhood of scarcity: ₹60 covers all of school, the household runs on hand-glued envelopes. |
+| 2 | गाँव | The Village | 7–11 | Years in the village — new maths, new hardships, and a rain of tears. |
+| 3 | ड्रॉप के साल | The Drop Years | 12–17 | Return to the city and the fall at Class 12 — the two dropped years the book is named after. |
+| 4 | कॉलेज | College | 18–22 | Unpaid fees, the Meerut riots, chemistry practicals — a degree earned against the odds. |
+| 5 | शादी और बी.एड. | Marriage & B.Ed. | 23–27 | A house, a wedding ring, and a B.Ed. — building a life while still building himself. |
+| 6 | नौकरी का संघर्ष | The Struggle for a Job | 28–36 | Twenty-three interviews end in "no". The twenty-fourth makes him **मास्टर जी** — the teacher. The epilogue: his retirement, where this book began. |
 
-If the page count changes, update `var TOTAL = 141` in the flip-book script inside `index.html`.
+## Read it
 
-## Sections
+- **Website** — [12thdrop.in](https://12thdrop.in) · read the opening pages in an interactive flip-book, in Hindi or English.
+- **Kindle** — [amazon.in/dp/B0H7CKSGB2](https://www.amazon.in/dp/B0H7CKSGB2)
+- **Contact** — [sachinjain024@gmail.com](mailto:sachinjain024@gmail.com)
 
-1. **Hero** — title, toggled subtitle, and the interactive flip-book reader (see above).
-2. **About the Book** — the official back-cover blurb (Hindi) with an English translation shown per language, and four thematic highlights (₹60 schooling · 2 dropped years · 23 interviews · 36 chapters).
-3. **Reviews** — one review card (Hindi + English quote) plus two "coming soon" placeholder cards.
-4. **Footer** — credits and the contact email `sachinjain024@gmail.com` (Kindle link also here).
+---
 
-## Theme
-
-Colours and mood are pulled straight from the book cover: cream paper, an ochre sunset gradient, terracotta roof accents, and deep-brown ink. Fonts: *Marcellus* (English display), *Tiro Devanagari Hindi* (Hindi, the book's own font), and *Mukta* (body), loaded from Google Fonts.
-
-## Things you'll want to edit later
-
-Everything editable is clearly commented in `index.html`. See `CLAUDE.md` for exact instructions. The two most common edits:
-
-- **Add a real review** — replace the `REVIEW #1` card, or swap a `placeholder` card for a real one.
-- **Change the Kindle link** — the URL `https://www.amazon.in/dp/B0H7CKSGB2` appears in the nav and footer.
-- **Update the book pages** — re-render `assets/pages/` from the PDF (command above) and adjust `TOTAL` if the page count changed.
+<sub>Curious how this site works? The website is a single static HTML file with a page-flip reader — see [WEBSITE.md](WEBSITE.md) for how it's built and maintained.</sub>
