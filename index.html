@@ -295,19 +295,38 @@
   .about-blurb p.en{font-size:1.08rem;color:var(--ink);margin:1.1rem 0}
   .about-sign{font-family:'Marcellus',serif;letter-spacing:.18em;color:var(--ink-soft);margin-top:1.8rem}
 
-  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;max-width:920px;margin:3.4rem auto 0}
-  .fact{
-    background:rgba(250,244,232,.72);border:1px solid rgba(58,36,23,.12);
-    border-radius:12px;padding:1.4rem 1rem;text-align:center;backdrop-filter:blur(2px);
-  }
-  .fact .num{font-family:'Marcellus',serif;font-size:1.9rem;color:var(--terracotta);line-height:1}
-  .fact .lbl{font-size:.9rem;color:var(--ink-soft);margin-top:.5rem}
-  .fact .lbl .hindi{font-size:.95rem}
-  @media(max-width:680px){.facts{grid-template-columns:repeat(2,1fr)}}
-
   /* ============================= VILLAGE STRIP ============================= */
   .strip{padding:0;line-height:0;background:var(--sky-4)}
   .strip svg{width:100%;height:auto;display:block}
+
+  /* ============================= WHY THIS BOOK ============================= */
+  .whybook{background:var(--paper-light)}
+  .whybook-grid{
+    display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);
+    gap:3.2rem;align-items:center;max-width:1020px;margin:0 auto;
+  }
+  .whybook figure{margin:10px}   /* room for the frame's outer shadow rings */
+  .photo-frame{
+    background:var(--paper-soft);            /* cream mat */
+    padding:14px;border-radius:2px;
+    border:1px solid rgba(58,36,23,.25);
+    box-shadow:
+      0 0 0 7px var(--gold),                 /* gold frame band */
+      0 0 0 8px rgba(58,36,23,.4),           /* thin outer edge */
+      0 22px 40px -18px rgba(58,36,23,.5);   /* wall shadow */
+  }
+  .photo-frame img{border:1px solid rgba(58,36,23,.18);border-radius:1px;width:100%;height:auto}
+  .photo-cap{
+    text-align:center;font-size:.92rem;color:var(--ink-soft);
+    margin-top:1.3rem;letter-spacing:.04em;
+  }
+  .whybook-text p.hi{font-family:'Tiro Devanagari Hindi',serif;font-size:1.12rem;color:var(--ink);margin:1rem 0}
+  .whybook-text p.en{font-size:1.03rem;color:var(--ink);margin:1rem 0}
+  .whybook-text .about-sign{margin-top:1.5rem;text-align:center}
+  @media(max-width:860px){
+    .whybook-grid{grid-template-columns:1fr;gap:2.4rem;max-width:560px}
+    .whybook figure{margin:10px auto 0;max-width:480px}
+  }
 
   /* ============================= REVIEWS ============================= */
   .reviews{background:var(--paper)}
@@ -379,6 +398,7 @@
     </div>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#why">Motivation</a>
       <a href="#reviews">Reviews</a>
       <a class="gh-link" href="https://github.com/sachinjain024/12th-drop-book" target="_blank" rel="noopener" aria-label="View on GitHub" title="View on GitHub">
         <svg width="19" height="19" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
@@ -444,7 +464,7 @@
 <section class="about" id="about">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">About the Book</span>
+      <h2>About the Book</h2>
     </div>
 
     <!-- ===== Hindi content (official back-cover blurb, verbatim) ===== -->
@@ -454,7 +474,6 @@
       <p class="hi">'12th Drop' एक पिता और बेटे के बीच हुई असली बातचीत से बुनी गई कहानी है। इसमें न कोई बनावट है, न कोई उपदेश — बस ज़िंदगी, जैसी सच में होती है।</p>
       <div class="dots">•&nbsp;•&nbsp;•</div>
       <p class="lead" style="margin-top:1.2rem">यह करोड़ों आम लोगों की कहानी है।</p>
-      <p class="about-sign">— सुनील कुमार जैन —</p>
     </div>
 
     <!-- ===== English content (translation of the back-cover blurb) ===== -->
@@ -464,16 +483,8 @@
       <p class="en"><em>12th Drop</em> is woven from real conversations between a father and his son. There is nothing manufactured in it, and it preaches no sermon — just life, as it truly is. From ₹60 schooling and two years lost after Class 12, through twenty-three failed job interviews, to becoming a teacher on the twenty-fourth.</p>
       <div class="dots">•&nbsp;•&nbsp;•</div>
       <p class="lead en" style="margin-top:1.2rem">This is the story of millions of ordinary people.</p>
-      <p class="about-sign">— Sunil Kumar Jain —</p>
     </div>
 
-    <!-- thematic highlights (numbers universal; labels toggle) -->
-    <div class="facts">
-      <div class="fact"><div class="num">₹60</div><div class="lbl"><span class="hi-only hindi">की पूरी पढ़ाई · कक्षा 1–8</span><span class="en-only">total schooling · Classes 1–8</span></div></div>
-      <div class="fact"><div class="num">2</div><div class="lbl"><span class="hi-only hindi">खोए हुए साल · बारहवीं के बाद</span><span class="en-only">years lost · after Class 12</span></div></div>
-      <div class="fact"><div class="num">23</div><div class="lbl"><span class="hi-only hindi">इंटरव्यू · फिर 24वाँ</span><span class="en-only">interviews · then the 24th</span></div></div>
-      <div class="fact"><div class="num">36</div><div class="lbl"><span class="hi-only hindi">अध्याय · 6 फेज़</span><span class="en-only">chapters · 6 phases</span></div></div>
-    </div>
   </div>
 </section>
 
@@ -497,13 +508,50 @@
   </svg>
 </div>
 
+<!-- ============================= WHY THIS BOOK ============================= -->
+<section class="whybook" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Motivation</h2>
+    </div>
+
+    <div class="whybook-grid">
+      <!-- framed photo from the retirement function -->
+      <figure>
+        <div class="photo-frame">
+          <img src="assets/retirement.jpg" alt="Sunil Kumar Jain holding 12th Drop on stage at his retirement function, surrounded by his sons and grandchildren" width="1200" height="800" loading="lazy" />
+        </div>
+        <figcaption class="photo-cap">Papa's Retirement Gift</figcaption>
+      </figure>
+
+      <div class="whybook-text">
+        <!-- ===== Hindi ===== -->
+        <div class="hi-only">
+          <p class="hi">बचपन में हमने पापा को संघर्ष करते देखा, हालाँकि उन्होंने हमें कभी दिखने नहीं दिया। स्कूल की नौकरी, घर की ज़िम्मेदारियाँ, और हमारी हर छोटी-बड़ी ज़रूरत — सब कुछ चुपचाप, बिना किसी शिकायत के।</p>
+          <p class="hi">आज हम जो कुछ भी हैं, उसकी नींव उन्हीं की मेहनत है।</p>
+          <p class="hi">उनके रिटायरमेंट का दिन नज़दीक आया तो हम सोचने लगे — जो इंसान पूरी ज़िंदगी दूसरों के बच्चों को पढ़ाता रहा, उसे क्या भेंट करें? फिर लगा, इससे बड़ा तोहफ़ा क्या होगा कि उसकी अपनी कहानी एक किताब बन जाए।</p>
+          <p class="hi">सालों की बातचीत में जो कहानियाँ हमने सुनी थीं, उन्हें हमने लिख लिया। यह किताब उनके रिटायरमेंट समारोह के दिन उन्हें भेंट की गई — धन्यवाद कहने का हमारा तरीक़ा।</p>
+          <p class="about-sign">— सचिन और राहुल जैन —</p>
+        </div>
+
+        <!-- ===== English ===== -->
+        <div class="en-only">
+          <p class="en">As children we watched our father struggle, though he rarely let us see it. The school job, the weight of the household, and every need of ours, big or small — he carried it all quietly, without complaint.</p>
+          <p class="en">Whatever we have become, the foundation is his labour.</p>
+          <p class="en">As his retirement day drew near, we kept asking ourselves: what do you give a man who spent his whole life teaching other people's children? Then it came to us — what greater gift than his own story, bound as a book?</p>
+          <p class="en">So we wrote down the stories we had heard from him across years of conversations. It was placed in his hands at his retirement function — our way of saying thank you.</p>
+          <p class="about-sign">— Sachin &amp; Rahul Jain —</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================= REVIEWS ============================= -->
 <section class="reviews" id="reviews">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Reviews</span>
-      <h2 class="hi-only">पाठकों की राय</h2>
-      <h2 class="en-only">What readers are saying</h2>
+      <h2>Reviews</h2>
     </div>
 
     <div class="review-grid">
@@ -563,7 +611,7 @@
 <footer>
   <div class="brand-f">12<span style="font-size:.7em">TH</span> DROP</div>
   <p style="margin-top:.5rem" class="hindi">एक आम आदमी की कहानी</p>
-  <p style="margin-top:.9rem">By Sunil Kumar Jain · Told by Sachin &amp; Rahul Jain</p>
+  <p style="margin-top:.9rem">By Sachin &amp; Rahul Jain</p>
   <p style="margin-top:.5rem">
     <span class="hi-only">संपर्क</span><span class="en-only">Contact</span>:
     <a href="mailto:sachinjain024@gmail.com?subject=12th%20Drop%20—%20A%20Story%20of%20Every%20Common%20Man">sachinjain024@gmail.com</a>
